@@ -16,12 +16,13 @@ This project compares the performance of FPGA and CPU implementations for real-t
 ```
 .
 ├── src/                    # Source code
-│   ├── calibration/        # Calibration tools
-│   ├── detection/          # Character detection
-│   ├── recognition/        # Character recognition
-│   ├── settings/           # Configuration files
-│   └── utils/             # Utility functions
-├── scripts/                # Python scripts
+│   ├── settings/          # Configuration files
+│   ├── fpga_sw/          # FPGA software components
+│   ├── frame_generator/   # Frame generation tools
+│   ├── recognition/      # Character recognition
+│   ├── detection/        # Character detection
+│   └── __init__.py
+├── scripts/               # Python scripts
 │   ├── generate_full_alphabet_frames.py
 │   ├── calibrate_letters.py
 │   ├── batch_combination_finder.py
@@ -29,18 +30,26 @@ This project compares the performance of FPGA and CPU implementations for real-t
 │   ├── create_batch_manifest.py
 │   ├── build_sequence.py
 │   ├── play_sequence.py
-│   └── parse_hls_report.py
-├── output/                 # Generated outputs
-│   ├── frames/            # Generated frames
-│   ├── calibration/       # Calibration data
-│   ├── batches/           # Batch frames
-│   ├── sequence/          # Video sequences
-│   ├── logs/              # Log files
-│   └── hls_pars_output/   # HLS synthesis reports
-├── hls_syn/               # HLS synthesis files
-├── preprocess_data.py     # Data preprocessing script
-├── run_analysis.py        # Analysis script
-└── requirements.txt       # Python dependencies
+│   ├── parse_hls_report.py
+│   ├── test_Detector.py
+│   ├── test_recognizer.py
+│   ├── test_font_scales.py
+│   ├── analyze_blob_sizes.py
+│   ├── update_recognizer_tables.py
+│   └── check_unique_sums.py
+├── docs/                  # Documentation
+├── input/                 # Input data
+├── output/               # Generated outputs
+│   ├── frames/          # Generated frames
+│   ├── calibration/     # Calibration data
+│   ├── batches/         # Batch frames
+│   ├── sequence/        # Video sequences
+│   ├── logs/            # Log files
+│   └── hls_pars_output/ # HLS synthesis reports
+├── hls_syn/             # HLS synthesis files
+├── preprocess_data.py   # Data preprocessing script
+├── run_analysis.py      # Analysis script
+└── requirements.txt     # Python dependencies
 ```
 
 ## Technical Specifications
