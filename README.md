@@ -55,7 +55,7 @@ This project compares the performance of FPGA and CPU implementations for real-t
 - Python 3.8+
 - OpenCV 4.5+
 - NumPy 1.21+
-- Xilinx Vitis HLS 2021.1+
+- Xilinx Vitis HLS 2024.2
 
 ## Setup
 
