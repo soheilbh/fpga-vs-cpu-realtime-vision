@@ -1,0 +1,84 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "1 2",
+    "file": "hls_wrapper.cpp",
+    "fileloc": 30,
+    "instructions": 11,
+    "name": "detect_and_recognize",
+    "total_instructions": 514
+  },
+  "1": {
+    "basicblocks": 7,
+    "calls": "4",
+    "file": "hls_detector.cpp",
+    "fileloc": 134,
+    "instructions": 26,
+    "loads": {
+      "L": 1
+    },
+    "name": "detect_frame",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 455
+  },
+  "2": {
+    "basicblocks": 6,
+    "calls": "3",
+    "file": "hls_recognizer.cpp",
+    "fileloc": 25,
+    "instructions": 20,
+    "loads": {
+      "G": 1,
+      "L": 2
+    },
+    "name": "recognize_character",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 48
+  },
+  "3": {
+    "basicblocks": 6,
+    "calls": "",
+    "file": "hls_recognizer.cpp",
+    "fileloc": 4,
+    "instructions": 28,
+    "loads": {
+      "G": 1
+    },
+    "name": "find_exact_match",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 28
+  },
+  "4": {
+    "basicblocks": 14,
+    "calls": "5",
+    "file": "hls_detector.cpp",
+    "fileloc": 49,
+    "instructions": 382,
+    "loads": {
+      "L": 8
+    },
+    "name": "flood_fill",
+    "stores": {
+      "L": 80
+    },
+    "total_instructions": 429
+  },
+  "5": {
+    "basicblocks": 9,
+    "calls": "",
+    "file": "hls_detector.cpp",
+    "fileloc": 11,
+    "instructions": 47,
+    "name": "get_neighbors",
+    "stores": {
+      "L": 13
+    },
+    "total_instructions": 47
+  }
+}

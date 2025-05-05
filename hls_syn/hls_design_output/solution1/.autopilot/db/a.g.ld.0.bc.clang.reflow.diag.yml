@@ -1,0 +1,757 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: src/hls_detector.cpp, Line: 122, Column: 36 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'is_bright_pixel(ap_uint<8>)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 5, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'flood_fill(ap_uint<8> (*) [800], int, int, BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 53, Column: 0 }
+  - String:          ''''
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_detector.cpp, Line: 113, Column: 9 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - Callee:          'get_neighbors(int, int, int (*) [2], int&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 16, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'flood_fill(ap_uint<8> (*) [800], int, int, BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: src/hls_detector.cpp, Line: 148, Column: 17 }
+Function:        _Z12detect_framePA800_7ap_uintILi8EER10BlobOutput
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'is_bright_pixel(ap_uint<8>)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 5, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'detect_frame(ap_uint<8> (*) [800], BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 137, Column: 0 }
+  - String:          ''''
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_detector.cpp, Line: 149, Column: 17 }
+Function:        _Z12detect_framePA800_7ap_uintILi8EER10BlobOutput
+Args:            
+  - Callee:          'flood_fill(ap_uint<8> (*) [800], int, int, BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 53, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'detect_frame(ap_uint<8> (*) [800], BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 137, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_recognizer.cpp, Line: 35, Column: 24 }
+Function:        _Z19recognize_characterRK10BlobOutputRc
+Args:            
+  - Callee:          'find_exact_match(int)'
+    DebugLoc:        { File: src/hls_recognizer.cpp, Line: 4, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'recognize_character(BlobOutput const&, char&)'
+    DebugLoc:        { File: src/hls_recognizer.cpp, Line: 25, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_wrapper.cpp, Line: 42, Column: 5 }
+Function:        _Z20detect_and_recognizePA800_7ap_uintILi8EERc
+Args:            
+  - Callee:          'detect_frame(ap_uint<8> (*) [800], BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 137, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'detect_and_recognize(ap_uint<8> (*) [800], char&)'
+    DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_wrapper.cpp, Line: 43, Column: 5 }
+Function:        _Z20detect_and_recognizePA800_7ap_uintILi8EERc
+Args:            
+  - Callee:          'recognize_character(BlobOutput const&, char&)'
+    DebugLoc:        { File: src/hls_recognizer.cpp, Line: 25, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'detect_and_recognize(ap_uint<8> (*) [800], char&)'
+    DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: src/hls_recognizer.cpp, Line: 9, Column: 21 }
+Function:        _Z16find_exact_matchi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_9_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: src/hls_detector.cpp, Line: 117, Column: 20 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_117_4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: src/hls_detector.cpp, Line: 61, Column: 19 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_61_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: src/hls_detector.cpp, Line: 53, Column: 0 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_61_2
+  - String:          ''' ('
+  - LoopLoc:         'src/hls_detector.cpp:61:19'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          flood_fill
+  - String:          ''' completely with a factor of '
+  - Factor:          '64'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_detector.cpp, Line: 113, Column: 9 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - Callee:          'get_neighbors(int, int, int (*) [2], int&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 16, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'flood_fill(ap_uint<8> (*) [800], int, int, BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 53, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_detector.cpp, Line: 149, Column: 17 }
+Function:        _Z12detect_framePA800_7ap_uintILi8EER10BlobOutput
+Args:            
+  - Callee:          'flood_fill(ap_uint<8> (*) [800], int, int, BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 53, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'detect_frame(ap_uint<8> (*) [800], BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 137, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_recognizer.cpp, Line: 35, Column: 24 }
+Function:        _Z19recognize_characterRK10BlobOutputRc
+Args:            
+  - Callee:          'find_exact_match(int)'
+    DebugLoc:        { File: src/hls_recognizer.cpp, Line: 4, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'recognize_character(BlobOutput const&, char&)'
+    DebugLoc:        { File: src/hls_recognizer.cpp, Line: 25, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_wrapper.cpp, Line: 42, Column: 5 }
+Function:        _Z20detect_and_recognizePA800_7ap_uintILi8EERc
+Args:            
+  - Callee:          'detect_frame(ap_uint<8> (*) [800], BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 137, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'detect_and_recognize(ap_uint<8> (*) [800], char&)'
+    DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_wrapper.cpp, Line: 43, Column: 5 }
+Function:        _Z20detect_and_recognizePA800_7ap_uintILi8EERc
+Args:            
+  - Callee:          'recognize_character(BlobOutput const&, char&)'
+    DebugLoc:        { File: src/hls_recognizer.cpp, Line: 25, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'detect_and_recognize(ap_uint<8> (*) [800], char&)'
+    DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_detect_and_recognize_ir
+Args:            
+  - Callee:          'detect_and_recognize(ap_uint<8> (*) [800], char&)'
+    DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_detect_and_recognize_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/hls_detector.cpp, Line: 53, Column: 0 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'get_neighbors(int, int, int (*) [2], int&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 16, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'flood_fill(ap_uint<8> (*) [800], int, int, BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 53, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+Function:        _Z20detect_and_recognizePA800_7ap_uintILi8EERc
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'detect_frame(ap_uint<8> (*) [800], BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 137, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'detect_and_recognize(ap_uint<8> (*) [800], char&)'
+    DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+Function:        _Z20detect_and_recognizePA800_7ap_uintILi8EERc
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          frame
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Block
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '8'
+  - String:          ' on dimension '
+  - Dim:             '2'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_detect_and_recognize_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            frame_7
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '8'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_detect_and_recognize_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            frame_6
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '8'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_detect_and_recognize_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            frame_5
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '8'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_detect_and_recognize_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            frame_4
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '8'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_detect_and_recognize_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            frame_3
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '8'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_detect_and_recognize_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            frame_2
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '8'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_detect_and_recognize_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            frame_1
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '8'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+Function:        apatb_detect_and_recognize_ir
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            frame_0
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '8'
+  - String:          '-bits'
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: src/hls_recognizer.cpp, Line: 9, Column: 21 }
+Function:        _Z16find_exact_matchi
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        VITIS_LOOP_9_1
+  - String:          ' '
+  - LoopLoc:         'src/hls_recognizer.cpp:9:21'
+  - String:          ' '
+  - Function:        'find_exact_match(int)'
+    DebugLoc:        { File: src/hls_recognizer.cpp, Line: 4, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: src/hls_detector.cpp, Line: 89, Column: 22 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        VITIS_LOOP_89_3
+  - String:          ' '
+  - LoopLoc:         'src/hls_detector.cpp:89:22'
+  - String:          ' '
+  - Function:        'flood_fill(ap_uint<8> (*) [800], int, int, BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 53, Column: 0 }
+  - String:          ' '
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            CouldNotAnalyzeBoundsPattern
+DebugLoc:        { File: src/hls_detector.cpp, Line: 146, Column: 23 }
+Function:        _Z20detect_and_recognizePA800_7ap_uintILi8EERc
+Args:            
+  - String:          Could not analyze the loop bounds
+  - String:          ' _XLX_SEP_ '
+  - LoopName:        VITIS_LOOP_146_1
+  - String:          ' '
+  - LoopLoc:         'src/hls_detector.cpp:146:23'
+  - String:          ' '
+  - Function:        'detect_and_recognize(ap_uint<8> (*) [800], char&)'
+    DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+  - String:          ' '
+...
+--- !Failure
+Pass:            reflow-occurrence-inference
+Name:            NonComputableLoopForm
+DebugLoc:        { File: src/hls_recognizer.cpp, Line: 9, Column: 21 }
+Function:        _Z16find_exact_matchi
+Args:            
+  - String:          'Could not analyze occurrence information within '''
+  - LoopName:        VITIS_LOOP_9_1
+  - String:          '''('
+  - LoopLoc:         'src/hls_recognizer.cpp:9:21'
+  - String:          ') . Requires loop in simplify form and with single exit.'
+...
+--- !Failure
+Pass:            reflow-occurrence-inference
+Name:            NonComputableLoopForm
+DebugLoc:        { File: src/hls_detector.cpp, Line: 146, Column: 23 }
+Function:        _Z20detect_and_recognizePA800_7ap_uintILi8EERc
+Args:            
+  - String:          'Could not analyze occurrence information within '''
+  - LoopName:        VITIS_LOOP_146_1
+  - String:          '''('
+  - LoopLoc:         'src/hls_detector.cpp:146:23'
+  - String:          ') . Requires loop in simplify form and with single exit.'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: src/hls_recognizer.cpp, Line: 9, Column: 21 }
+Function:        _Z16find_exact_matchi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_9_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: src/hls_detector.cpp, Line: 117, Column: 20 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_117_4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !HLSReportInfo
+Pass:            auto-loop-pipeline
+Name:            AutoLoopPipeline
+Args:            
+  - String:          'automatically set the pipeline for Loop< '
+  - LoopName:        VITIS_LOOP_147_2
+  - String:          '> at '
+  - LoopLoc:         'src/hls_detector.cpp:147:27'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: src/hls_recognizer.cpp, Line: 9, Column: 21 }
+Function:        _Z16find_exact_matchi
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_9_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: src/hls_detector.cpp, Line: 117, Column: 20 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_117_4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-auto-inline-performance-driven
+Name:            AutoInlinePerf
+DebugLoc:        { File: src/hls_recognizer.cpp, Line: 35, Column: 24 }
+Function:        _Z19recognize_characterRK10BlobOutputRc
+Args:            
+  - String:          'Automatically inlining function '''
+  - Callee:          'find_exact_match(int)'
+    DebugLoc:        { File: src/hls_recognizer.cpp, Line: 4, Column: 0 }
+  - String:          ''' to improve effectiveness of pipeline pragma in function '''
+  - Caller:          'recognize_character(BlobOutput const&, char&)'
+    DebugLoc:        { File: src/hls_recognizer.cpp, Line: 25, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-loop-flatten-cost-model
+Name:            FlattenOffInference
+DebugLoc:        { File: src/hls_detector.cpp, Line: 89, Column: 22 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Automatically disabling loop flattening for loop '''
+  - LoopName:        VITIS_LOOP_89_3
+  - String:          '''.'
+...
+--- !Passed
+Pass:            reflow-loop-flatten-cost-model
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/hls_detector.cpp, Line: 89, Column: 22 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - PragmaType:      loop_flatten
+  - String:          ' '
+  - PragmaOptions:   off
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  flood_fill
+  - String:          ' '
+  - PragmaSrcLoc:    'src/hls_detector.cpp:89:22'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 89, Column: 22 }
+  - LoopName:        VITIS_LOOP_89_3
+  - String:          ' '
+  - LoopLoc:         'src/hls_detector.cpp:89:22'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 89, Column: 22 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayPromotion
+DebugLoc:        { File: src/hls_detector.cpp, Line: 111, Column: 13 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Automatically partitioning array '''
+  - Value:           neighbors
+  - String:          ''' dimension '
+  - Dim:             '2'
+  - String:          ' completely based on constant index.'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/hls_detector.cpp, Line: 55, Column: 16 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=cyclic factor=64 variable=visited'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  flood_fill
+  - String:          ' '
+  - varLoc:          'src/hls_detector.cpp:55:16'
+  - String:          ' '
+  - PragmaSrcLoc:    'src/hls_detector.cpp:60:9'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 60, Column: 9 }
+  - VarName:         visited
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: src/hls_detector.cpp, Line: 60, Column: 9 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            cyclic
+  - String:          ' factor='
+  - Factor:          '64'
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            visited
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+DebugLoc:        { File: src/hls_detector.cpp, Line: 111, Column: 13 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=2 type=complete  variable=neighbors'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  flood_fill
+  - String:          ' '
+  - varLoc:          'src/hls_detector.cpp:111:13'
+  - String:          ' '
+  - VarName:         neighbors
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: src/hls_detector.cpp, Line: 111, Column: 13 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '2'
+  - String:          ''' for array '''
+  - Name:            neighbors
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: src/hls_detector.cpp, Line: 55, Column: 16 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          visited
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Cyclic
+  - String:          ' partitioning'
+  - String:          ' with factor '
+  - Factor:          '64'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: src/hls_detector.cpp, Line: 111, Column: 13 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          neighbors
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '2'
+  - String:          .
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: src/hls_recognizer.cpp, Line: 9, Column: 21 }
+Function:        _Z19recognize_characterRK10BlobOutputRc
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_9_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: src/hls_detector.cpp, Line: 117, Column: 20 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_117_4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFailFullyUnroll
+DebugLoc:        { File: src/hls_recognizer.cpp, Line: 9, Column: 21 }
+Function:        _Z19recognize_characterRK10BlobOutputRc
+Args:            
+  - String:          'Cannot unroll loop '''
+  - LoopName:        VITIS_LOOP_9_1
+  - String:          ''' ('
+  - LoopLoc:         'src/hls_recognizer.cpp:9:21'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          recognize_character
+  - String:          ''' as it has a variable trip count'
+...
+--- !Missed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFailFullyUnroll
+DebugLoc:        { File: src/hls_detector.cpp, Line: 117, Column: 20 }
+Function:        _Z10flood_fillPA800_7ap_uintILi8EEiiR10BlobOutput
+Args:            
+  - String:          'Cannot unroll loop '''
+  - LoopName:        VITIS_LOOP_117_4
+  - String:          ''' ('
+  - LoopLoc:         'src/hls_detector.cpp:117:20'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          flood_fill
+  - String:          ''' as it has a variable trip count'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_detector.cpp, Line: 149, Column: 17 }
+Function:        _Z20detect_and_recognizePA800_7ap_uintILi8EERc
+Args:            
+  - Callee:          'flood_fill(ap_uint<8> (*) [800], int, int, BlobOutput&)'
+    DebugLoc:        { File: src/hls_detector.cpp, Line: 53, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'detect_and_recognize(ap_uint<8> (*) [800], char&)'
+    DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: src/hls_wrapper.cpp, Line: 43, Column: 5 }
+Function:        _Z20detect_and_recognizePA800_7ap_uintILi8EERc
+Args:            
+  - Callee:          'recognize_character(BlobOutput const&, char&)'
+    DebugLoc:        { File: src/hls_recognizer.cpp, Line: 25, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'detect_and_recognize(ap_uint<8> (*) [800], char&)'
+    DebugLoc:        { File: src/hls_wrapper.cpp, Line: 33, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...

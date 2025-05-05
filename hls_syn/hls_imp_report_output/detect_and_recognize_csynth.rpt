@@ -1,0 +1,320 @@
+
+
+================================================================
+== Synthesis Summary Report of 'detect_and_recognize'
+================================================================
++ General Information: 
+    * Date:           Mon May  5 05:08:48 2025
+    * Version:        2024.2 (Build 5238294 on Nov  8 2024)
+    * Project:        hls_design_output
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+--------+-----------+-------------+-----+
+    |                       Modules                      | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |         |        |           |             |     |
+    |                       & Loops                      | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   |   DSP  |     FF    |     LUT     | URAM|
+    +----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+--------+-----------+-------------+-----+
+    |+ detect_and_recognize                              |     -|  0.17|        -|          -|         -|        -|     -|        no|  2 (~0%)|  4 (1%)|  7674 (7%)|  17720 (33%)|    -|
+    | + recognize_character                              |     -|  0.17|       20|    200.000|         -|       20|     -|        no|        -|       -|   86 (~0%)|    313 (~0%)|    -|
+    |  o VITIS_LOOP_9_1                                  |     -|  7.30|       17|    170.000|         3|        -|     5|        no|        -|       -|          -|            -|    -|
+    | o VITIS_LOOP_146_1                                 |     -|  7.30|        -|          -|         -|        -|     -|        no|        -|       -|          -|            -|    -|
+    |  + detect_and_recognize_Pipeline_VITIS_LOOP_147_2  |     -|  1.74|     2405|  2.405e+04|         -|     2405|     -|        no|        -|       -|  109 (~0%)|    266 (~0%)|    -|
+    |   o VITIS_LOOP_147_2                               |    II|  7.30|     2402|  2.402e+04|         3|        3|   800|       yes|        -|       -|          -|            -|    -|
+    |  + flood_fill                                      |     -|  0.39|        -|          -|         -|        -|     -|        no|  2 (~0%)|  4 (1%)|  7322 (6%)|  16739 (31%)|    -|
+    |   + flood_fill_Pipeline_VITIS_LOOP_59_1            |     -|  1.22|     7502|  7.502e+04|         -|     7502|     -|        no|        -|       -|   21 (~0%)|     79 (~0%)|    -|
+    |    o VITIS_LOOP_59_1                               |     -|  7.30|     7500|  7.500e+04|         1|        1|  7500|       yes|        -|       -|          -|            -|    -|
+    |   o VITIS_LOOP_89_3                                |     -|  7.30|        -|          -|       209|        -|     -|        no|        -|       -|          -|            -|    -|
+    |    o VITIS_LOOP_117_4                              |     -|  7.30|      164|  1.640e+03|        41|        -|     4|        no|        -|       -|          -|            -|    -|
+    +----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+--------+-----------+-------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 5             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register    | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+-------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL        | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER        | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER      | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR      | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | result      | 0x10   | 32    | R      | Data signal of result            |                                                                      |
+| s_axi_control | result_ctrl | 0x14   | 32    | R      | Control signal of result         | 0=result_ap_vld                                                      |
++---------------+-------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* BRAM
++---------------+------------+---------------+
+| Interface     | Data Width | Address Width |
++---------------+------------+---------------+
+| frame_0_PORTA | 8          | 32            |
+| frame_1_PORTA | 8          | 32            |
+| frame_2_PORTA | 8          | 32            |
+| frame_3_PORTA | 8          | 32            |
+| frame_4_PORTA | 8          | 32            |
+| frame_5_PORTA | 8          | 32            |
+| frame_6_PORTA | 8          | 32            |
+| frame_7_PORTA | 8          | 32            |
++---------------+------------+---------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+-------------+
+| Argument | Direction | Datatype    |
++----------+-----------+-------------+
+| frame    | in        | ap_uint<8>* |
+| result   | out       | char&       |
++----------+-----------+-------------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+---------------------------------------+
+| Argument | HW Interface  | HW Type   | HW Info                               |
++----------+---------------+-----------+---------------------------------------+
+| frame    | frame_0_PORTA | interface |                                       |
+| frame    | frame_1_PORTA | interface |                                       |
+| frame    | frame_2_PORTA | interface |                                       |
+| frame    | frame_3_PORTA | interface |                                       |
+| frame    | frame_4_PORTA | interface |                                       |
+| frame    | frame_5_PORTA | interface |                                       |
+| frame    | frame_6_PORTA | interface |                                       |
+| frame    | frame_7_PORTA | interface |                                       |
+| result   | s_axi_control | register  | name=result offset=0x10 range=32      |
+| result   | s_axi_control | register  | name=result_ctrl offset=0x14 range=32 |
++----------+---------------+-----------+---------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+
+================================================================
+== Bind Op Report
+================================================================
++---------------------------------------------------+-----+--------+-----------------+-----------+--------------------------+---------+
+| Name                                              | DSP | Pragma | Variable        | Op        | Impl                     | Latency |
++---------------------------------------------------+-----+--------+-----------------+-----------+--------------------------+---------+
+| + detect_and_recognize                            | 4   |        |                 |           |                          |         |
+|   add_ln146_1_fu_198_p2                           |     |        | add_ln146_1     | add       | fabric                   | 0       |
+|   add_ln146_fu_203_p2                             |     |        | add_ln146       | add       | fabric                   | 0       |
+|   icmp_ln146_fu_218_p2                            |     |        | icmp_ln146      | setlt     | auto                     | 0       |
+|   or_cond_i_fu_231_p2                             |     |        | or_cond_i       | and       | auto                     | 0       |
+|  + detect_and_recognize_Pipeline_VITIS_LOOP_147_2 | 0   |        |                 |           |                          |         |
+|    icmp_ln147_fu_257_p2                           |     |        | icmp_ln147      | seteq     | auto                     | 0       |
+|    add_ln147_fu_263_p2                            |     |        | add_ln147       | add       | fabric                   | 0       |
+|    add_ln148_fu_273_p2                            |     |        | add_ln148       | add       | fabric                   | 0       |
+|    add_ln147_1_fu_343_p2                          |     |        | add_ln147_1     | add       | fabric                   | 0       |
+|    sparsemux_17_3_8_1_1_U1                        |     |        | pixel           | sparsemux | compactencoding_dontcare | 0       |
+|    icmp_ln7_fu_348_p2                             |     |        | icmp_ln7        | setgt     | auto                     | 0       |
+|    add_ln147_2_fu_353_p2                          |     |        | add_ln147_2     | add       | fabric                   | 0       |
+|    icmp_ln147_1_fu_358_p2                         |     |        | icmp_ln147_1    | seteq     | auto                     | 0       |
+|    select_ln147_fu_363_p3                         |     |        | select_ln147    | select    | auto_sel                 | 0       |
+|  + flood_fill                                     | 4   |        |                 |           |                          |         |
+|    add_ln85_fu_2641_p2                            |     |        | add_ln85        | add       | fabric                   | 0       |
+|    icmp_ln89_fu_2803_p2                           |     |        | icmp_ln89       | seteq     | auto                     | 0       |
+|    or_ln89_fu_2809_p2                             |     |        | or_ln89         | or        | auto                     | 0       |
+|    loop_count_2_fu_2815_p2                        |     |        | loop_count_2    | add       | fabric                   | 0       |
+|    urem_32ns_8ns_16_36_1_U71                      |     |        | urem_ln92       | urem      | auto                     | 35      |
+|    mul_32ns_34ns_42_2_1_U69                       | 4   |        | mul_ln92        | mul       | auto                     | 1       |
+|    queue_front_4_fu_2909_p2                       |     |        | queue_front_4   | add       | fabric                   | 0       |
+|    icmp_ln95_fu_2914_p2                           |     |        | icmp_ln95       | seteq     | auto                     | 0       |
+|    queue_front_5_fu_2920_p3                       |     |        | queue_front_5   | select    | auto_sel                 | 0       |
+|    add_ln104_fu_2892_p2                           |     |        | add_ln104       | add       | fabric                   | 0       |
+|    sparsemux_17_3_8_1_1_U70                       |     |        | pixel           | sparsemux | compactencoding_dontcare | 0       |
+|    grp_fu_2613_p2                                 |     |        | icmp_ln7        | setgt     | auto                     | 0       |
+|    icmp_ln105_fu_2938_p2                          |     |        | icmp_ln105      | setlt     | auto                     | 0       |
+|    add_ln106_fu_2944_p2                           |     |        | add_ln106       | add       | fabric                   | 0       |
+|    select_ln105_fu_2950_p3                        |     |        | select_ln105    | select    | auto_sel                 | 0       |
+|    empty_fu_2958_p3                               |     |        | empty           | select    | auto_sel                 | 0       |
+|    icmp_ln20_fu_2966_p2                           |     |        | icmp_ln20       | setgt     | auto                     | 0       |
+|    add_ln22_fu_2971_p2                            |     |        | add_ln22        | add       | fabric                   | 0       |
+|    icmp_ln27_fu_2985_p2                           |     |        | icmp_ln27       | setlt     | auto                     | 0       |
+|    add_ln29_fu_2996_p2                            |     |        | add_ln29        | add       | fabric                   | 0       |
+|    num_neighbors_4_fu_3002_p3                     |     |        | num_neighbors_4 | select    | auto_sel                 | 0       |
+|    icmp_ln34_fu_3011_p2                           |     |        | icmp_ln34       | setgt     | auto                     | 0       |
+|    add_ln35_fu_3016_p2                            |     |        | add_ln35        | add       | fabric                   | 0       |
+|    num_neighbors_5_fu_3032_p2                     |     |        | num_neighbors_5 | add       | fabric                   | 0       |
+|    icmp_ln41_fu_3043_p2                           |     |        | icmp_ln41       | setlt     | auto                     | 0       |
+|    add_ln42_fu_3048_p2                            |     |        | add_ln42        | add       | fabric                   | 0       |
+|    num_neighbors_6_fu_3060_p2                     |     |        | num_neighbors_6 | add       | fabric                   | 0       |
+|    icmp_ln117_fu_3066_p2                          |     |        | icmp_ln117      | seteq     | auto                     | 0       |
+|    add_ln117_fu_3072_p2                           |     |        | add_ln117       | add       | fabric                   | 0       |
+|    urem_32ns_8ns_16_36_1_U72                      |     |        | urem_ln118      | urem      | auto                     | 35      |
+|    mul_32ns_34ns_42_2_1_U69                       | 4   |        | mul_ln118       | mul       | auto                     | 1       |
+|    add_ln121_fu_3118_p2                           |     |        | add_ln121       | add       | fabric                   | 0       |
+|    sparsemux_129_6_1_1_1_U73                      |     |        | tmp             | sparsemux | compactencoding_dontcare | 0       |
+|    add_ln122_fu_3558_p2                           |     |        | add_ln122       | add       | fabric                   | 0       |
+|    sparsemux_17_3_8_1_1_U70                       |     |        | pixel_1         | sparsemux | compactencoding_dontcare | 0       |
+|    grp_fu_2613_p2                                 |     |        | icmp_ln7_1      | setgt     | auto                     | 0       |
+|    queue_back_2_fu_3581_p2                        |     |        | queue_back_2    | add       | fabric                   | 0       |
+|    icmp_ln127_fu_3587_p2                          |     |        | icmp_ln127      | seteq     | auto                     | 0       |
+|    queue_back_3_fu_3592_p3                        |     |        | queue_back_3    | select    | auto_sel                 | 0       |
+|   + flood_fill_Pipeline_VITIS_LOOP_59_1           | 0   |        |                 |           |                          |         |
+|     icmp_ln59_fu_1332_p2                          |     |        | icmp_ln59       | setlt     | auto                     | 0       |
+|     add_ln59_fu_1416_p2                           |     |        | add_ln59        | add       | fabric                   | 0       |
+|  + recognize_character                            | 0   |        |                 |           |                          |         |
+|    icmp_ln29_fu_114_p2                            |     |        | icmp_ln29       | seteq     | auto                     | 0       |
+|    add_ln11_fu_144_p2                             |     |        | add_ln11        | add       | fabric                   | 0       |
+|    icmp_ln13_fu_169_p2                            |     |        | icmp_ln13       | seteq     | auto                     | 0       |
+|    icmp_ln15_fu_174_p2                            |     |        | icmp_ln15       | setlt     | auto                     | 0       |
+|    left_4_fu_179_p2                               |     |        | left_4          | add       | fabric                   | 0       |
+|    right_4_fu_184_p2                              |     |        | right_4         | add       | fabric                   | 0       |
+|    left_5_fu_189_p3                               |     |        | left_5          | select    | auto_sel                 | 0       |
+|    right_5_fu_196_p3                              |     |        | right_5         | select    | auto_sel                 | 0       |
+|    icmp_ln9_fu_203_p2                             |     |        | icmp_ln9        | setgt     | auto                     | 0       |
+|    icmp_ln36_fu_215_p2                            |     |        | icmp_ln36       | setlt     | auto                     | 0       |
++---------------------------------------------------+-----+--------+-----------------+-----------+--------------------------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------------+--------------+-----------+------+------+--------+--------------------+--------+---------+------------------+
+| Name                    | Usage        | Type      | BRAM | URAM | Pragma | Variable           | Impl   | Latency | Bitwidth, Depth, |
+|                         |              |           |      |      |        |                    |        |         | Banks            |
++-------------------------+--------------+-----------+------+------+--------+--------------------+--------+---------+------------------+
+| + detect_and_recognize  |              |           | 2    | 0    |        |                    |        |         |                  |
+|   control_s_axi_U       | interface    | s_axilite |      |      |        |                    |        |         |                  |
+|  + flood_fill           |              |           | 2    | 0    |        |                    |        |         |                  |
+|    visited_U            | ram_2p array |           |      |      | yes    | visited            | lutram | 1       | 1, 7500, 1       |
+|    visited_1_U          | ram_2p array |           |      |      | yes    | visited_1          | lutram | 1       | 1, 7500, 1       |
+|    visited_2_U          | ram_2p array |           |      |      | yes    | visited_2          | lutram | 1       | 1, 7500, 1       |
+|    visited_3_U          | ram_2p array |           |      |      | yes    | visited_3          | lutram | 1       | 1, 7500, 1       |
+|    visited_4_U          | ram_2p array |           |      |      | yes    | visited_4          | lutram | 1       | 1, 7500, 1       |
+|    visited_5_U          | ram_2p array |           |      |      | yes    | visited_5          | lutram | 1       | 1, 7500, 1       |
+|    visited_6_U          | ram_2p array |           |      |      | yes    | visited_6          | lutram | 1       | 1, 7500, 1       |
+|    visited_7_U          | ram_2p array |           |      |      | yes    | visited_7          | lutram | 1       | 1, 7500, 1       |
+|    visited_8_U          | ram_2p array |           |      |      | yes    | visited_8          | lutram | 1       | 1, 7500, 1       |
+|    visited_9_U          | ram_2p array |           |      |      | yes    | visited_9          | lutram | 1       | 1, 7500, 1       |
+|    visited_10_U         | ram_2p array |           |      |      | yes    | visited_10         | lutram | 1       | 1, 7500, 1       |
+|    visited_11_U         | ram_2p array |           |      |      | yes    | visited_11         | lutram | 1       | 1, 7500, 1       |
+|    visited_12_U         | ram_2p array |           |      |      | yes    | visited_12         | lutram | 1       | 1, 7500, 1       |
+|    visited_13_U         | ram_2p array |           |      |      | yes    | visited_13         | lutram | 1       | 1, 7500, 1       |
+|    visited_14_U         | ram_2p array |           |      |      | yes    | visited_14         | lutram | 1       | 1, 7500, 1       |
+|    visited_15_U         | ram_2p array |           |      |      | yes    | visited_15         | lutram | 1       | 1, 7500, 1       |
+|    visited_16_U         | ram_2p array |           |      |      | yes    | visited_16         | lutram | 1       | 1, 7500, 1       |
+|    visited_17_U         | ram_2p array |           |      |      | yes    | visited_17         | lutram | 1       | 1, 7500, 1       |
+|    visited_18_U         | ram_2p array |           |      |      | yes    | visited_18         | lutram | 1       | 1, 7500, 1       |
+|    visited_19_U         | ram_2p array |           |      |      | yes    | visited_19         | lutram | 1       | 1, 7500, 1       |
+|    visited_20_U         | ram_2p array |           |      |      | yes    | visited_20         | lutram | 1       | 1, 7500, 1       |
+|    visited_21_U         | ram_2p array |           |      |      | yes    | visited_21         | lutram | 1       | 1, 7500, 1       |
+|    visited_22_U         | ram_2p array |           |      |      | yes    | visited_22         | lutram | 1       | 1, 7500, 1       |
+|    visited_23_U         | ram_2p array |           |      |      | yes    | visited_23         | lutram | 1       | 1, 7500, 1       |
+|    visited_24_U         | ram_2p array |           |      |      | yes    | visited_24         | lutram | 1       | 1, 7500, 1       |
+|    visited_25_U         | ram_2p array |           |      |      | yes    | visited_25         | lutram | 1       | 1, 7500, 1       |
+|    visited_26_U         | ram_2p array |           |      |      | yes    | visited_26         | lutram | 1       | 1, 7500, 1       |
+|    visited_27_U         | ram_2p array |           |      |      | yes    | visited_27         | lutram | 1       | 1, 7500, 1       |
+|    visited_28_U         | ram_2p array |           |      |      | yes    | visited_28         | lutram | 1       | 1, 7500, 1       |
+|    visited_29_U         | ram_2p array |           |      |      | yes    | visited_29         | lutram | 1       | 1, 7500, 1       |
+|    visited_30_U         | ram_2p array |           |      |      | yes    | visited_30         | lutram | 1       | 1, 7500, 1       |
+|    visited_31_U         | ram_2p array |           |      |      | yes    | visited_31         | lutram | 1       | 1, 7500, 1       |
+|    visited_32_U         | ram_2p array |           |      |      | yes    | visited_32         | lutram | 1       | 1, 7500, 1       |
+|    visited_33_U         | ram_2p array |           |      |      | yes    | visited_33         | lutram | 1       | 1, 7500, 1       |
+|    visited_34_U         | ram_2p array |           |      |      | yes    | visited_34         | lutram | 1       | 1, 7500, 1       |
+|    visited_35_U         | ram_2p array |           |      |      | yes    | visited_35         | lutram | 1       | 1, 7500, 1       |
+|    visited_36_U         | ram_2p array |           |      |      | yes    | visited_36         | lutram | 1       | 1, 7500, 1       |
+|    visited_37_U         | ram_2p array |           |      |      | yes    | visited_37         | lutram | 1       | 1, 7500, 1       |
+|    visited_38_U         | ram_2p array |           |      |      | yes    | visited_38         | lutram | 1       | 1, 7500, 1       |
+|    visited_39_U         | ram_2p array |           |      |      | yes    | visited_39         | lutram | 1       | 1, 7500, 1       |
+|    visited_40_U         | ram_2p array |           |      |      | yes    | visited_40         | lutram | 1       | 1, 7500, 1       |
+|    visited_41_U         | ram_2p array |           |      |      | yes    | visited_41         | lutram | 1       | 1, 7500, 1       |
+|    visited_42_U         | ram_2p array |           |      |      | yes    | visited_42         | lutram | 1       | 1, 7500, 1       |
+|    visited_43_U         | ram_2p array |           |      |      | yes    | visited_43         | lutram | 1       | 1, 7500, 1       |
+|    visited_44_U         | ram_2p array |           |      |      | yes    | visited_44         | lutram | 1       | 1, 7500, 1       |
+|    visited_45_U         | ram_2p array |           |      |      | yes    | visited_45         | lutram | 1       | 1, 7500, 1       |
+|    visited_46_U         | ram_2p array |           |      |      | yes    | visited_46         | lutram | 1       | 1, 7500, 1       |
+|    visited_47_U         | ram_2p array |           |      |      | yes    | visited_47         | lutram | 1       | 1, 7500, 1       |
+|    visited_48_U         | ram_2p array |           |      |      | yes    | visited_48         | lutram | 1       | 1, 7500, 1       |
+|    visited_49_U         | ram_2p array |           |      |      | yes    | visited_49         | lutram | 1       | 1, 7500, 1       |
+|    visited_50_U         | ram_2p array |           |      |      | yes    | visited_50         | lutram | 1       | 1, 7500, 1       |
+|    visited_51_U         | ram_2p array |           |      |      | yes    | visited_51         | lutram | 1       | 1, 7500, 1       |
+|    visited_52_U         | ram_2p array |           |      |      | yes    | visited_52         | lutram | 1       | 1, 7500, 1       |
+|    visited_53_U         | ram_2p array |           |      |      | yes    | visited_53         | lutram | 1       | 1, 7500, 1       |
+|    visited_54_U         | ram_2p array |           |      |      | yes    | visited_54         | lutram | 1       | 1, 7500, 1       |
+|    visited_55_U         | ram_2p array |           |      |      | yes    | visited_55         | lutram | 1       | 1, 7500, 1       |
+|    visited_56_U         | ram_2p array |           |      |      | yes    | visited_56         | lutram | 1       | 1, 7500, 1       |
+|    visited_57_U         | ram_2p array |           |      |      | yes    | visited_57         | lutram | 1       | 1, 7500, 1       |
+|    visited_58_U         | ram_2p array |           |      |      | yes    | visited_58         | lutram | 1       | 1, 7500, 1       |
+|    visited_59_U         | ram_2p array |           |      |      | yes    | visited_59         | lutram | 1       | 1, 7500, 1       |
+|    visited_60_U         | ram_2p array |           |      |      | yes    | visited_60         | lutram | 1       | 1, 7500, 1       |
+|    visited_61_U         | ram_2p array |           |      |      | yes    | visited_61         | lutram | 1       | 1, 7500, 1       |
+|    visited_62_U         | ram_2p array |           |      |      | yes    | visited_62         | lutram | 1       | 1, 7500, 1       |
+|    visited_63_U         | ram_2p array |           |      |      | yes    | visited_63         | lutram | 1       | 1, 7500, 1       |
+|    queue_x_U            | ram_1p array |           | 1    |      |        | queue_x            | auto   | 1       | 32, 512, 1       |
+|    queue_y_U            | ram_1p array |           | 1    |      |        | queue_y            | auto   | 1       | 32, 512, 1       |
+|    neighbors_U          | ram_1p array |           |      |      |        | neighbors          | auto   | 1       | 32, 4, 1         |
+|    neighbors_1_U        | ram_1p array |           |      |      |        | neighbors_1        | auto   | 1       | 32, 4, 1         |
+|  + recognize_character  |              |           | 0    | 0    |        |                    |        |         |                  |
+|    char_prefix_sums_U   | rom_1p       |           |      |      |        | char_prefix_sums   | auto   | 1       | 9, 27, 1         |
+|    prefix_sum_to_char_U | rom_1p       |           |      |      |        | prefix_sum_to_char | auto   | 1       | 7, 27, 1         |
++-------------------------+--------------+-----------+------+------+--------+--------------------+--------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Ignored Pragmas
++-----------+----------------+-----------------------------------------------+----------------------------------------------------------------------+
+| Type      | Options        | Location                                      | Messages                                                             |
++-----------+----------------+-----------------------------------------------+----------------------------------------------------------------------+
+| interface | bram port=blob | src/hls_wrapper.cpp:11 in detect_top, blob    | Unsupported interface port data type in '#pragma HLS interface bram' |
+| interface | bram port=blob | src/hls_wrapper.cpp:22 in recognize_top, blob | Unsupported interface port data type in '#pragma HLS interface bram' |
++-----------+----------------+-----------------------------------------------+----------------------------------------------------------------------+
+
+* Valid Pragma Syntax
++-----------------+------------------------------------------+--------------------------------------------------------+
+| Type            | Options                                  | Location                                               |
++-----------------+------------------------------------------+--------------------------------------------------------+
+| inline          |                                          | src/hls_detector.cpp:6 in is_bright_pixel              |
+| bind_storage    | variable=visited type=RAM_2P impl=lutram | src/hls_detector.cpp:56 in flood_fill, visited         |
+| pipeline        | II=1                                     | src/hls_detector.cpp:60 in flood_fill                  |
+| unroll          |                                          | src/hls_detector.cpp:62 in flood_fill                  |
+| pipeline        | II=1                                     | src/hls_detector.cpp:90 in flood_fill                  |
+| dependence      | variable=visited inter false             | src/hls_detector.cpp:116 in flood_fill, visited        |
+| pipeline        | II=1                                     | src/hls_recognizer.cpp:5 in find_exact_match           |
+| loop_tripcount  | min=1 max=5                              | src/hls_recognizer.cpp:10 in find_exact_match          |
+| pipeline        | II=1                                     | src/hls_recognizer.cpp:26 in recognize_character       |
+| interface       | ap_ctrl_none port=return                 | src/hls_wrapper.cpp:9 in detect_top, return            |
+| interface       | bram port=frame                          | src/hls_wrapper.cpp:10 in detect_top, frame            |
+| array_partition | variable=frame type=block factor=8 dim=2 | src/hls_wrapper.cpp:12 in detect_top, frame            |
+| interface       | ap_ctrl_none port=return                 | src/hls_wrapper.cpp:21 in recognize_top, return        |
+| interface       | s_axilite port=return bundle=control     | src/hls_wrapper.cpp:34 in detect_and_recognize, return |
+| interface       | s_axilite port=result bundle=control     | src/hls_wrapper.cpp:35 in detect_and_recognize, result |
+| interface       | bram port=frame                          | src/hls_wrapper.cpp:36 in detect_and_recognize, frame  |
+| array_partition | variable=frame type=block factor=8 dim=2 | src/hls_wrapper.cpp:37 in detect_and_recognize, frame  |
++-----------------+------------------------------------------+--------------------------------------------------------+
+
+* Inferred Pragmas
++-----------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------+
+| Source                            | Inferred Pragma | Options                                      | Location                                               |
++-----------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------+
+| pipeline  src/hls_detector.cpp:60 | array_partition | dim=1 type=cyclic factor=64 variable=visited | variable visited in flood_fill src/hls_detector.cpp:55 |
++-----------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------+
+
+

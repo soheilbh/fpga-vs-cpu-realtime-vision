@@ -2,39 +2,28 @@
 Configuration settings for the FPGA vs CPU real-time vision project.
 """
 
-# Frame Generation Settings
-FRAME_WIDTH = 2048
-FRAME_HEIGHT = 2048
-TARGET_FPS = 30
-NOISE_PERCENTAGE = 0.1  # 10% noise in generated frames
-MAX_LETTERS_PER_FRAME = 5
+import cv2
 
-# Processing Pipeline Settings
-ENABLE_DETECTION = True
-ENABLE_BLOB_DETECTION = True
-ENABLE_PREFIX_SUM = True
-ENABLE_MAPPING = True
+# Frame Generation Settings
+FRAME_WIDTH = 800
+FRAME_HEIGHT = 600
+TARGET_FPS = 32
+VIDEO_DURATION = 10  # Duration of video in seconds
+BACKGROUND_INTENSITY = 100  # Background intensity (0-255, where 0 is black)
+
+# Noise Settings
+ENABLE_NOISE = True  # Enable/disable noise generation
+NOISE_PERCENTAGE = 0.1  # Percentage of frame pixels to be noise (0-0.04 or 0-4%)
+NOISE_COLOR = 0  # Noise pixel intensity (0-255, where 0 is black)
+
+# Letter Generation Settings
+LETTER_COUNT = 1  # Fixed number of letters per frame
+LETTER_FONT_SCALE = 2.8  # Base font scale for letters
+LETTER_THICKNESS = 2  # Thickness of letter strokes
+LETTER_FONT = cv2.FONT_HERSHEY_PLAIN  # Font type for letters
+LETTER_COLOR = 255  # Letter color intensity (0-255, where 255 is white)
 
 # Detection Settings
-BRIGHT_PIXEL_THRESHOLD = 200  # Pixel intensity threshold for detection
+BRIGHT_PIXEL_THRESHOLD = 160  # Pixel intensity threshold for detection (must be > BACKGROUND_INTENSITY)
 MIN_BLOB_SIZE = 10  # Minimum number of pixels for a valid blob
-MAX_BLOB_SIZE = 1000  # Maximum number of pixels for a valid blob
-
-# Logging Settings
-LOG_LEVEL = "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
-ENABLE_PERFORMANCE_LOGGING = True
-PERFORMANCE_LOG_INTERVAL = 100  # Log performance metrics every N frames
-
-# Visualization Settings
-ENABLE_VISUALIZATION = True
-VISUALIZATION_FPS = 10  # FPS for visualization (can be lower than processing FPS)
-SAVE_VISUALIZATION = False
-VISUALIZATION_OUTPUT_DIR = "output/visualization"
-
-# FPGA Settings
-FPGA_CLOCK_FREQUENCY = 100e6  # 100 MHz
-FPGA_BITSTREAM_PATH = "fpga/bitstream.bit"
-
-# Output Settings
-OUTPUT_DIR = "output"
-RESULTS_FILE = "results.csv"
+MAX_BLOB_SIZE = 1000  # Maximum number of pixels for a valid blob 

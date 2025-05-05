@@ -1,0 +1,48 @@
+{
+  "0": {
+    "basicblocks": 7,
+    "calls": "2 1",
+    "file": "hls_wrapper.cpp",
+    "fileloc": 30,
+    "instructions": 60,
+    "loads": {
+      "L": 1,
+      "T": 8
+    },
+    "name": "detect_and_recognize",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 1331
+  },
+  "1": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "hls_recognizer.cpp",
+    "fileloc": 25,
+    "instructions": 35,
+    "loads": {
+      "G": 2
+    },
+    "name": "recognize_character",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 35
+  },
+  "2": {
+    "basicblocks": 152,
+    "calls": "",
+    "file": "hls_detector.cpp",
+    "fileloc": 49,
+    "instructions": 1236,
+    "loads": {
+      "L": 84
+    },
+    "name": "flood_fill",
+    "stores": {
+      "L": 214
+    },
+    "total_instructions": 1236
+  }
+}

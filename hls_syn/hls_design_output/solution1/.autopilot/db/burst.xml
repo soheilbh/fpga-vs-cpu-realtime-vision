@@ -1,0 +1,6 @@
+<VitisHLS:BurstInfo>
+    <burst group="BURST_VERBOSE_MISSED" fe_name="CouldNotAnalyzeBoundsPatternMissed" src_info="src/hls_recognizer.cpp:9:21" msg_id="214-252" msg_severity="INFO" msg_body="Could not analyze the loop bounds" resolution="214-252" LoopLoc="src/hls_recognizer.cpp:9:21" LoopName="VITIS_LOOP_9_1" ParentFunc="find_exact_match(int)"/>
+    <burst group="BURST_VERBOSE_MISSED" fe_name="CouldNotAnalyzeBoundsPatternMissed" src_info="src/hls_detector.cpp:89:22" msg_id="214-252" msg_severity="INFO" msg_body="Could not analyze the loop bounds" resolution="214-252" LoopLoc="src/hls_detector.cpp:89:22" LoopName="VITIS_LOOP_89_3" ParentFunc="flood_fill(ap_uint&lt;8&gt; (*) [800], int, int, BlobOutput&amp;)"/>
+    <burst group="BURST_VERBOSE_MISSED" fe_name="CouldNotAnalyzeBoundsPatternMissed" src_info="src/hls_detector.cpp:146:23" msg_id="214-252" msg_severity="INFO" msg_body="Could not analyze the loop bounds" resolution="214-252" LoopLoc="src/hls_detector.cpp:146:23" LoopName="VITIS_LOOP_146_1" ParentFunc="detect_and_recognize(ap_uint&lt;8&gt; (*) [800], char&amp;)"/>
+</VitisHLS:BurstInfo>
+

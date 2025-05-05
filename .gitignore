@@ -1,3 +1,6 @@
+# Output directories
+output/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -31,19 +34,18 @@ env/
 *.swp
 *.swo
 
+# OS
+.DS_Store
+Thumbs.db
+
 # Logs
 *.log
 logs/
 
-# Local development
+# Environment variables
 .env
-.env.local
 
-# Test coverage
-.coverage
-htmlcov/
-.pytest_cache/
-
-# Distribution
-*.tar.gz
-*.zip .DS_Store
+# Temporary files
+*.tmp
+*.temp
+*.bak

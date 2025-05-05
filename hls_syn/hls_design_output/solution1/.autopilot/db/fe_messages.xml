@@ -1,0 +1,132 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_INVALID" msg_id="207-5572" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:11:33" msg_body="Unsupported interface port data type in '#pragma HLS interface bram'">
+        <args ClangWarningOption="ignored-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INVALID" msg_id="207-5572" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:22:33" msg_body="Unsupported interface port data type in '#pragma HLS interface bram'">
+        <args ClangWarningOption="ignored-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:9:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="detect_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_ctrl_none port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:10:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="detect_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="bram port=frame" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:11:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="detect_top" ARG_PragmaIsValid="0" ARG_PragmaOptions="bram port=blob" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:12:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="detect_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=frame type=block factor=8 dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:21:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="recognize_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_ctrl_none port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:22:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="recognize_top" ARG_PragmaIsValid="0" ARG_PragmaOptions="bram port=blob" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/soheil/Desktop/mac_shared/fpga-vs-cpu-realtime-vision/hls_syn/hls.tcl:27:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="detect_and_recognize" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=detect_and_recognize" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:34:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="detect_and_recognize" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:35:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="detect_and_recognize" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=result bundle=control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:36:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="detect_and_recognize" ARG_PragmaIsValid="1" ARG_PragmaOptions="bram port=frame" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_wrapper.cpp:37:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="detect_and_recognize" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=frame type=block factor=8 dim=2" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_recognizer.cpp:5:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="find_exact_match" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_recognizer.cpp:10:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="find_exact_match" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=1 max=5" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_recognizer.cpp:26:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="recognize_character" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_detector.cpp:6:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="is_bright_pixel" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_detector.cpp:56:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="flood_fill" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=visited type=RAM_2P impl=lutram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_detector.cpp:60:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="flood_fill" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_detector.cpp:62:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="flood_fill" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_detector.cpp:90:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="flood_fill" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/hls_detector.cpp:116:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="flood_fill" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=visited inter false" ARG_PragmaType="dependence" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="src/hls_detector.cpp:122:36" msg_body="Inlining function 'is_bright_pixel(ap_uint&lt;8&gt;)' into 'flood_fill(ap_uint&lt;8&gt; (*) [800], int, int, BlobOutput&amp;)'">
+        <args Callee="is_bright_pixel(ap_uint&lt;8&gt;)" Callee-DebugLoc="File src/hls_detector.cpp Line 5 Column 0" Caller="flood_fill(ap_uint&lt;8&gt; (*) [800], int, int, BlobOutput&amp;)" Caller-DebugLoc="File src/hls_detector.cpp Line 53 Column 0"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="src/hls_detector.cpp:148:17" msg_body="Inlining function 'is_bright_pixel(ap_uint&lt;8&gt;)' into 'detect_frame(ap_uint&lt;8&gt; (*) [800], BlobOutput&amp;)'">
+        <args Callee="is_bright_pixel(ap_uint&lt;8&gt;)" Callee-DebugLoc="File src/hls_detector.cpp Line 5 Column 0" Caller="detect_frame(ap_uint&lt;8&gt; (*) [800], BlobOutput&amp;)" Caller-DebugLoc="File src/hls_detector.cpp Line 137 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="src/hls_recognizer.cpp:9:21" msg_body="Loop 'VITIS_LOOP_9_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_9_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="src/hls_detector.cpp:117:20" msg_body="Loop 'VITIS_LOOP_117_4' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_117_4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="src/hls_detector.cpp:61:19" msg_body="Loop 'VITIS_LOOP_61_2' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_61_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="src/hls_detector.cpp:53:0" msg_body="Unrolling loop 'VITIS_LOOP_61_2' (src/hls_detector.cpp:61:19) in function 'flood_fill' completely with a factor of 64">
+        <args Factor="64" LoopLoc="src/hls_detector.cpp:61:19" LoopName="VITIS_LOOP_61_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/hls_detector.cpp:53:0" msg_body="Inlining function 'get_neighbors(int, int, int (*) [2], int&amp;)' into 'flood_fill(ap_uint&lt;8&gt; (*) [800], int, int, BlobOutput&amp;)'">
+        <args Callee="get_neighbors(int, int, int (*) [2], int&amp;)" Callee-DebugLoc="File src/hls_detector.cpp Line 16 Column 0" Caller="flood_fill(ap_uint&lt;8&gt; (*) [800], int, int, BlobOutput&amp;)" Caller-DebugLoc="File src/hls_detector.cpp Line 53 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/hls_wrapper.cpp:33:0" msg_body="Inlining function 'detect_frame(ap_uint&lt;8&gt; (*) [800], BlobOutput&amp;)' into 'detect_and_recognize(ap_uint&lt;8&gt; (*) [800], char&amp;)'">
+        <args Callee="detect_frame(ap_uint&lt;8&gt; (*) [800], BlobOutput&amp;)" Callee-DebugLoc="File src/hls_detector.cpp Line 137 Column 0" Caller="detect_and_recognize(ap_uint&lt;8&gt; (*) [800], char&amp;)" Caller-DebugLoc="File src/hls_wrapper.cpp Line 33 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/hls_wrapper.cpp:33:0" msg_body="Applying array_partition to 'frame': Block partitioning with factor 8 on dimension 2.">
+        <args Dim="2" Factor="8" Mode="Block" UOName="frame"/>
+    </msg>
+    <msg msg_groups="AUTOMATION" msg_id="214-364" msg_severity="INFO" msg_loc="src/hls_recognizer.cpp:35:24" msg_body="Automatically inlining function 'find_exact_match(int)' to improve effectiveness of pipeline pragma in function 'recognize_character(BlobOutput const&amp;, char&amp;)'">
+        <args Callee="find_exact_match(int)" Callee-DebugLoc="File src/hls_recognizer.cpp Line 4 Column 0" Caller="recognize_character(BlobOutput const&amp;, char&amp;)" Caller-DebugLoc="File src/hls_recognizer.cpp Line 25 Column 0"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-437" msg_severity="INFO" msg_loc="src/hls_detector.cpp:89:22" msg_body="Automatically disabling loop flattening for loop 'VITIS_LOOP_89_3'.">
+        <args LoopName="VITIS_LOOP_89_3"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/hls_detector.cpp:89:22" msg_body="loop_flatten 0 1 flood_fill src/hls_detector.cpp:89:22VITIS_LOOP_89_3 src/hls_detector.cpp:89:22">
+        <args LoopLoc="src/hls_detector.cpp:89:22" LoopLoc-DebugLoc="File src/hls_detector.cpp Line 89 Column 22" LoopName="VITIS_LOOP_89_3" PragmaFunction="flood_fill" PragmaIsAuto="1" PragmaOptions="0" PragmaSrcLoc="src/hls_detector.cpp:89:22" PragmaSrcLoc-DebugLoc="File src/hls_detector.cpp Line 89 Column 22" PragmaType="loop_flatten"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-449" msg_severity="INFO" msg_loc="src/hls_detector.cpp:111:13" msg_body="Automatically partitioning array 'neighbors' dimension 2 completely based on constant index.">
+        <args Dim="2" Value="neighbors"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/hls_detector.cpp:55:16" msg_body="array_partition dim=1 type=cyclic factor=64 variable=visited 1 flood_fill src/hls_detector.cpp:55:16 src/hls_detector.cpp:60:9visited">
+        <args PragmaFunction="flood_fill" PragmaIsAuto="1" PragmaOptions="dim=1 type=cyclic factor=64 variable=visited" PragmaSrcLoc="src/hls_detector.cpp:60:9" PragmaSrcLoc-DebugLoc="File src/hls_detector.cpp Line 60 Column 9" PragmaType="array_partition" VarName="visited" varLoc="src/hls_detector.cpp:55:16"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="src/hls_detector.cpp:60:9" msg_body="Inferring pragma 'array_partition type=cyclic factor=64 dim=1' for array 'visited' due to pipeline pragma">
+        <args Dim="1" Factor="64" Mode="cyclic" Name="visited" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="src/hls_detector.cpp:111:13" msg_body="array_partition dim=2 type=complete  variable=neighbors 1 flood_fill src/hls_detector.cpp:111:13 neighbors">
+        <args PragmaFunction="flood_fill" PragmaIsAuto="1" PragmaOptions="dim=2 type=complete  variable=neighbors" PragmaType="array_partition" VarName="neighbors" varLoc="src/hls_detector.cpp:111:13"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="src/hls_detector.cpp:111:13" msg_body="Inferring pragma 'array_partition type=complete dim=2' for array 'neighbors' due to pipeline pragma">
+        <args Dim="2" Mode="complete" Name="neighbors" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/hls_detector.cpp:55:16" msg_body="Applying array_partition to 'visited': Cyclic partitioning with factor 64 on dimension 1.">
+        <args Dim="1" Factor="64" Mode="Cyclic" UOName="visited"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/hls_detector.cpp:111:13" msg_body="Applying array_partition to 'neighbors': Complete partitioning on dimension 2.">
+        <args Dim="2" Mode="Complete" UOName="neighbors"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-187" msg_severity="WARNING" msg_loc="src/hls_recognizer.cpp:9:21" msg_body="Cannot unroll loop 'VITIS_LOOP_9_1' (src/hls_recognizer.cpp:9:21) in function 'recognize_character' as it has a variable trip count">
+        <args LoopLoc="src/hls_recognizer.cpp:9:21" LoopName="VITIS_LOOP_9_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-187" msg_severity="WARNING" msg_loc="src/hls_detector.cpp:117:20" msg_body="Cannot unroll loop 'VITIS_LOOP_117_4' (src/hls_detector.cpp:117:20) in function 'flood_fill' as it has a variable trip count">
+        <args LoopLoc="src/hls_detector.cpp:117:20" LoopName="VITIS_LOOP_117_4"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

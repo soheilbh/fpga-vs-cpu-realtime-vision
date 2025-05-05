@@ -1,0 +1,96 @@
+{
+    "1": {
+        "name": "flood_fill_Pipeline_VITIS_LOOP_59_1",
+        "file": "src\/hls_detector.cpp",
+        "fileloc": "59",
+        "instructions": "207",
+        "total_instructions": "207",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "66"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "2": {
+        "name": "recognize_character",
+        "file": "src\/hls_recognizer.cpp",
+        "fileloc": "25",
+        "instructions": "41",
+        "total_instructions": "41",
+        "calls": "",
+        "basicblocks": "7",
+        "loads": {
+            "G": "2",
+            "L": "2"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "0": {
+        "name": "detect_and_recognize",
+        "file": "src\/hls_wrapper.cpp",
+        "fileloc": "30",
+        "instructions": "52",
+        "total_instructions": "1168",
+        "calls": "4 3 2",
+        "basicblocks": "5",
+        "loads": {
+            "L": "4"
+        },
+        "stores": {
+            "L": "6"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "3": {
+        "name": "flood_fill",
+        "file": "src\/hls_detector.cpp",
+        "fileloc": "51",
+        "instructions": "806",
+        "total_instructions": "1013",
+        "calls": "1",
+        "basicblocks": "148",
+        "loads": {
+            "L": "74",
+            "T": "16"
+        },
+        "stores": {
+            "L": "148"
+        },
+        "loops": {
+            "L": "1",
+            "N": "1"
+        }
+    },
+    "4": {
+        "name": "detect_and_recognize_Pipeline_VITIS_LOOP_147_2",
+        "file": "src\/hls_wrapper.cpp",
+        "fileloc": "42",
+        "instructions": "62",
+        "total_instructions": "62",
+        "calls": "",
+        "basicblocks": "7",
+        "loads": {
+            "L": "3",
+            "T": "8"
+        },
+        "stores": {
+            "L": "6"
+        },
+        "loops": {
+            "L": "1"
+        }
+    }
+}

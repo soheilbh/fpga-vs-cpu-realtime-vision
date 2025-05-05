@@ -1,0 +1,201 @@
+
+
+================================================================
+== Vitis HLS Report for 'detect_and_recognize_Pipeline_VITIS_LOOP_147_2'
+================================================================
+* Date:           Mon May  5 05:08:32 2025
+
+* Version:        2024.2 (Build 5238294 on Nov  8 2024)
+* Project:        hls_design_output
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.558 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+------+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval  | Pipeline|
+    |   min   |   max   |    min    |    max    | min |  max |   Type  |
+    +---------+---------+-----------+-----------+-----+------+---------+
+    |        4|     2405|  40.000 ns|  24.050 us|    4|  2405|       no|
+    +---------+---------+-----------+-----------+-----+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+---------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  |   Trip  |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  |  Count  | Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+---------+----------+
+        |- VITIS_LOOP_147_2  |        2|     2402|         3|          3|          1|  0 ~ 800|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+---------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-----+--------+-------+-----+
+|       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
++-----------------+---------+-----+--------+-------+-----+
+|DSP              |        -|    -|       -|      -|    -|
+|Expression       |        -|    -|       0|    128|    -|
+|FIFO             |        -|    -|       -|      -|    -|
+|Instance         |        -|    -|       0|     42|    -|
+|Memory           |        -|    -|       -|      -|    -|
+|Multiplexer      |        -|    -|       0|     96|    -|
+|Register         |        -|    -|     109|      -|    -|
++-----------------+---------+-----+--------+-------+-----+
+|Total            |        0|    0|     109|    266|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Available        |      280|  220|  106400|  53200|    0|
++-----------------+---------+-----+--------+-------+-----+
+|Utilization (%)  |        0|    0|      ~0|     ~0|    0|
++-----------------+---------+-----+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+----------------------+---------+----+---+----+-----+
+    |         Instance        |        Module        | BRAM_18K| DSP| FF| LUT| URAM|
+    +-------------------------+----------------------+---------+----+---+----+-----+
+    |sparsemux_17_3_8_1_1_U1  |sparsemux_17_3_8_1_1  |        0|   0|  0|  42|    0|
+    +-------------------------+----------------------+---------+----+---+----+-----+
+    |Total                    |                      |        0|   0|  0|  42|    0|
+    +-------------------------+----------------------+---------+----+---+----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+----+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+----+---+----+------------+------------+
+    |add_ln147_1_fu_343_p2   |         +|   0|  0|  28|          21|          11|
+    |add_ln147_2_fu_353_p2   |         +|   0|  0|  13|          10|           1|
+    |add_ln147_fu_263_p2     |         +|   0|  0|  13|          10|           1|
+    |add_ln148_fu_273_p2     |         +|   0|  0|  23|          16|          16|
+    |icmp_ln147_1_fu_358_p2  |      icmp|   0|  0|  13|          10|           7|
+    |icmp_ln147_fu_257_p2    |      icmp|   0|  0|  13|          10|           9|
+    |icmp_ln7_fu_348_p2      |      icmp|   0|  0|  15|           8|           8|
+    |select_ln147_fu_363_p3  |    select|   0|  0|  10|           1|           1|
+    +------------------------+----------+----+---+----+------------+------------+
+    |Total                   |          |   0|  0| 128|          86|          54|
+    +------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------------------+----+-----------+-----+-----------+
+    |                  Name                  | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                               |  37|          7|    1|          7|
+    |ap_phi_mux_UnifiedRetVal_phi_fu_228_p4  |   9|          2|    1|          2|
+    |ap_return                               |   9|          2|    1|          2|
+    |phi_mul_fu_98                           |   9|          2|   21|         42|
+    |phi_urem_fu_94                          |   9|          2|   10|         20|
+    |x_fu_102                                |   9|          2|   10|         20|
+    |x_out                                   |  14|          3|   10|         30|
+    +----------------------------------------+----+-----------+-----+-----------+
+    |Total                                   |  96|         20|   54|        123|
+    +----------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------+----+----+-----+-----------+
+    |          Name         | FF | LUT| Bits| Const Bits|
+    +-----------------------+----+----+-----+-----------+
+    |UnifiedRetVal_reg_224  |   1|   0|    1|          0|
+    |add_ln147_reg_426      |  10|   0|   10|          0|
+    |ap_CS_fsm              |   6|   0|    6|          0|
+    |ap_return_preg         |   1|   0|    1|          0|
+    |icmp_ln147_reg_422     |   1|   0|    1|          0|
+    |phi_mul_fu_98          |  21|   0|   21|          0|
+    |phi_mul_load_reg_471   |  21|   0|   21|          0|
+    |phi_urem_fu_94         |  10|   0|   10|          0|
+    |phi_urem_load_reg_411  |  10|   0|   10|          0|
+    |pixel_reg_476          |   8|   0|    8|          0|
+    |x_1_reg_417            |  10|   0|   10|          0|
+    |x_fu_102               |  10|   0|   10|          0|
+    +-----------------------+----+----+-----+-----------+
+    |Total                  | 109|   0|  109|          0|
+    +-----------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------+-----+-----+------------+------------------------------------------------+--------------+
+|    RTL Ports   | Dir | Bits|  Protocol  |                  Source Object                 |    C Type    |
++----------------+-----+-----+------------+------------------------------------------------+--------------+
+|ap_clk          |   in|    1|  ap_ctrl_hs|  detect_and_recognize_Pipeline_VITIS_LOOP_147_2|  return value|
+|ap_rst          |   in|    1|  ap_ctrl_hs|  detect_and_recognize_Pipeline_VITIS_LOOP_147_2|  return value|
+|ap_start        |   in|    1|  ap_ctrl_hs|  detect_and_recognize_Pipeline_VITIS_LOOP_147_2|  return value|
+|ap_done         |  out|    1|  ap_ctrl_hs|  detect_and_recognize_Pipeline_VITIS_LOOP_147_2|  return value|
+|ap_idle         |  out|    1|  ap_ctrl_hs|  detect_and_recognize_Pipeline_VITIS_LOOP_147_2|  return value|
+|ap_ready        |  out|    1|  ap_ctrl_hs|  detect_and_recognize_Pipeline_VITIS_LOOP_147_2|  return value|
+|ap_return       |  out|    1|  ap_ctrl_hs|  detect_and_recognize_Pipeline_VITIS_LOOP_147_2|  return value|
+|phi_mul3        |   in|   16|     ap_none|                                        phi_mul3|        scalar|
+|frame_0_Addr_A  |  out|   32|        bram|                                         frame_0|         array|
+|frame_0_EN_A    |  out|    1|        bram|                                         frame_0|         array|
+|frame_0_WEN_A   |  out|    1|        bram|                                         frame_0|         array|
+|frame_0_Din_A   |  out|    8|        bram|                                         frame_0|         array|
+|frame_0_Dout_A  |   in|    8|        bram|                                         frame_0|         array|
+|frame_1_Addr_A  |  out|   32|        bram|                                         frame_1|         array|
+|frame_1_EN_A    |  out|    1|        bram|                                         frame_1|         array|
+|frame_1_WEN_A   |  out|    1|        bram|                                         frame_1|         array|
+|frame_1_Din_A   |  out|    8|        bram|                                         frame_1|         array|
+|frame_1_Dout_A  |   in|    8|        bram|                                         frame_1|         array|
+|frame_2_Addr_A  |  out|   32|        bram|                                         frame_2|         array|
+|frame_2_EN_A    |  out|    1|        bram|                                         frame_2|         array|
+|frame_2_WEN_A   |  out|    1|        bram|                                         frame_2|         array|
+|frame_2_Din_A   |  out|    8|        bram|                                         frame_2|         array|
+|frame_2_Dout_A  |   in|    8|        bram|                                         frame_2|         array|
+|frame_3_Addr_A  |  out|   32|        bram|                                         frame_3|         array|
+|frame_3_EN_A    |  out|    1|        bram|                                         frame_3|         array|
+|frame_3_WEN_A   |  out|    1|        bram|                                         frame_3|         array|
+|frame_3_Din_A   |  out|    8|        bram|                                         frame_3|         array|
+|frame_3_Dout_A  |   in|    8|        bram|                                         frame_3|         array|
+|frame_4_Addr_A  |  out|   32|        bram|                                         frame_4|         array|
+|frame_4_EN_A    |  out|    1|        bram|                                         frame_4|         array|
+|frame_4_WEN_A   |  out|    1|        bram|                                         frame_4|         array|
+|frame_4_Din_A   |  out|    8|        bram|                                         frame_4|         array|
+|frame_4_Dout_A  |   in|    8|        bram|                                         frame_4|         array|
+|frame_5_Addr_A  |  out|   32|        bram|                                         frame_5|         array|
+|frame_5_EN_A    |  out|    1|        bram|                                         frame_5|         array|
+|frame_5_WEN_A   |  out|    1|        bram|                                         frame_5|         array|
+|frame_5_Din_A   |  out|    8|        bram|                                         frame_5|         array|
+|frame_5_Dout_A  |   in|    8|        bram|                                         frame_5|         array|
+|frame_6_Addr_A  |  out|   32|        bram|                                         frame_6|         array|
+|frame_6_EN_A    |  out|    1|        bram|                                         frame_6|         array|
+|frame_6_WEN_A   |  out|    1|        bram|                                         frame_6|         array|
+|frame_6_Din_A   |  out|    8|        bram|                                         frame_6|         array|
+|frame_6_Dout_A  |   in|    8|        bram|                                         frame_6|         array|
+|frame_7_Addr_A  |  out|   32|        bram|                                         frame_7|         array|
+|frame_7_EN_A    |  out|    1|        bram|                                         frame_7|         array|
+|frame_7_WEN_A   |  out|    1|        bram|                                         frame_7|         array|
+|frame_7_Din_A   |  out|    8|        bram|                                         frame_7|         array|
+|frame_7_Dout_A  |   in|    8|        bram|                                         frame_7|         array|
+|x_out           |  out|   10|      ap_vld|                                           x_out|       pointer|
+|x_out_ap_vld    |  out|    1|      ap_vld|                                           x_out|       pointer|
++----------------+-----+-----+------------+------------------------------------------------+--------------+
+

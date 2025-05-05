@@ -1,0 +1,141 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'recognize_character'" level="0">
+<item name = "Date">Mon May  5 05:08:43 2025
+</item>
+<item name = "Version">2024.2 (Build 5238294 on Nov  8 2024)</item>
+<item name = "Project">hls_design_output</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 7.125 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">1, 20, 10.000 ns, 0.200 us, 1, 20, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_9_1">4, 17, 3, -, -, 1 ~ 5, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 207, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, -, -, -</column>
+<column name="Memory">0, -, 16, 7, -</column>
+<column name="Multiplexer">-, -, 0, 99, -</column>
+<column name="Register">-, -, 70, -, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="char_prefix_sums_U">recognize_character_char_prefix_sums_ROM_AUTO_1R, 0, 9, 4, 0, 27, 9, 1, 243</column>
+<column name="prefix_sum_to_char_U">recognize_character_prefix_sum_to_char_ROM_AUTO_1R, 0, 7, 3, 0, 27, 7, 1, 189</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln11_fu_144_p2">+, 0, 0, 14, 9, 9</column>
+<column name="left_4_fu_179_p2">+, 0, 0, 15, 8, 1</column>
+<column name="right_4_fu_184_p2">+, 0, 0, 15, 8, 2</column>
+<column name="icmp_ln13_fu_169_p2">icmp, 0, 0, 39, 32, 32</column>
+<column name="icmp_ln15_fu_174_p2">icmp, 0, 0, 39, 32, 32</column>
+<column name="icmp_ln29_fu_114_p2">icmp, 0, 0, 39, 32, 1</column>
+<column name="icmp_ln36_fu_215_p2">icmp, 0, 0, 15, 8, 5</column>
+<column name="icmp_ln9_fu_203_p2">icmp, 0, 0, 15, 8, 8</column>
+<column name="left_5_fu_189_p3">select, 0, 0, 8, 1, 8</column>
+<column name="right_5_fu_196_p3">select, 0, 0, 8, 1, 8</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">31, 6, 1, 6</column>
+<column name="ap_phi_mux_mid_phi_fu_91_p4">9, 2, 8, 16</column>
+<column name="ap_phi_mux_result_write_assign_phi_fu_103_p6">9, 2, 7, 14</column>
+<column name="ap_return">9, 2, 7, 14</column>
+<column name="left_fu_48">9, 2, 8, 16</column>
+<column name="mid_reg_88">9, 2, 8, 16</column>
+<column name="result_write_assign_reg_98">14, 3, 7, 21</column>
+<column name="right_fu_52">9, 2, 8, 16</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">5, 0, 5, 0</column>
+<column name="ap_return_preg">7, 0, 7, 0</column>
+<column name="icmp_ln13_reg_268">1, 0, 1, 0</column>
+<column name="icmp_ln29_reg_232">1, 0, 1, 0</column>
+<column name="icmp_ln36_reg_287">1, 0, 1, 0</column>
+<column name="left_5_reg_272">8, 0, 8, 0</column>
+<column name="left_fu_48">8, 0, 8, 0</column>
+<column name="mid_reg_88">8, 0, 8, 0</column>
+<column name="result_write_assign_reg_98">7, 0, 7, 0</column>
+<column name="right_5_reg_278">8, 0, 8, 0</column>
+<column name="right_fu_52">8, 0, 8, 0</column>
+<column name="trunc_ln_reg_256">8, 0, 8, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, recognize_character, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, recognize_character, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, recognize_character, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, recognize_character, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, recognize_character, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, recognize_character, return value</column>
+<column name="ap_return">out, 7, ap_ctrl_hs, recognize_character, return value</column>
+<column name="blob_prefix_sum_val">in, 32, ap_none, blob_prefix_sum_val, scalar</column>
+</table>
+</item>
+</section>
+</profile>

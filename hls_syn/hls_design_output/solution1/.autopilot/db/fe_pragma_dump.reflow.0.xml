@@ -1,0 +1,53 @@
+<pragmas>
+<pragma file="/tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_common.h" line="515" pragmaType="inline" parentfunction="_ZN8ssdm_intILi33ELb1EEC2EDq33_i" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base<33, true>(ap_int_base<33, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowCsim" off="0" region="0" recursive="0"/>
+<pragma file="/tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_common.h" line="523" pragmaType="inline" parentfunction="_ZN8ssdm_intILi1ELb0EEC2EDq1_j" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<8, false>::operator<<32, true>(ap_int_base<32, true> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool operator><8, false>(ap_int_base<8, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<32, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<8, false>::operator<=<8, false>(ap_int_base<8, false> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowCsim" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<1>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<1, false>::operator!() const" off="0" region="0" recursive="0"/>
+<pragma file="src/hls_detector.cpp" line="6" pragmaType="inline" parentfunction="is_bright_pixel" off="0" region="0" recursive="0"/>
+<pragma file="src/hls_detector.cpp" line="90" pragmaType="pipeline" parentfunction="flood_fill" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/hls_detector.cpp" line="60" pragmaType="pipeline" parentfunction="flood_fill" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/hls_detector.cpp" line="62" pragmaType="unroll" parentfunction="flood_fill" factor="-1" skip_exit_check="0"/>
+<pragma file="src/hls_detector.cpp" line="56" pragmaType="bind_storage" parentfunction="flood_fill" op="666" impl="23" latency="-1" variable="visited"/>
+<pragma file="src/hls_detector.cpp" line="116" pragmaType="dependence" parentfunction="flood_fill" class="" direction="NODIR" type="inter" distance="0" variable="visited"/>
+<pragma file="src/hls_recognizer.cpp" line="5" pragmaType="pipeline" parentfunction="find_exact_match" off="0" ii="1" style=""/>
+<pragma file="src/hls_recognizer.cpp" line="10" pragmaType="loop_tripcount" parentfunction="find_exact_match" min="1" max="5" avg="3"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool operator<<8, false>(ap_int_base<8, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="bool ap_int_base<8, false>::operator><32, true>(ap_int_base<32, true> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="/tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_common.h" line="515" pragmaType="inline" parentfunction="ssdm_int<32, true>::ssdm_int(int)" off="0" region="0" recursive="0"/>
+<pragma file="src/hls_recognizer.cpp" line="26" pragmaType="pipeline" parentfunction="recognize_character" off="0" ii="1" style=""/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<1, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<32, true>(ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int<33>::ap_int<33, true>(ap_int_base<33, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::RType<($_0)32, true>::minus operator-<8, false>(ap_int_base<8, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::RType<32, true>::minus operator-<8, false, 32, true>(ap_int_base<8, false> const&, ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<33, true>::ap_int_base<8, false>(ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint<9>(ap_uint<9> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::RType<($_0)32, true>::plus operator+<8, false>(ap_int_base<8, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<8>::ap_uint<33>(ap_int<33> const&)" off="0" region="0" recursive="0"/>
+<pragma file="src/hls_wrapper.cpp" line="34" pragmaType="interface" parentfunction="detect_and_recognize" mode="s_axilite" port="" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/hls_wrapper.cpp" line="35" pragmaType="interface" parentfunction="detect_and_recognize" mode="s_axilite" port="result" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/hls_wrapper.cpp" line="36" pragmaType="interface" parentfunction="detect_and_recognize" mode="ap_memory" port="frame" storage_type="-1" impl="-1" latency="-1" name="" depth="-1"/>
+<pragma file="src/hls_wrapper.cpp" line="37" pragmaType="array_partition" parentfunction="detect_and_recognize" dim="2" factor="8" mode="block" dynamic="0" variable="frame"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::RType<8, false>::plus operator+<8, false, 8, false>(ap_int_base<8, false> const&, ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<9, false>::RType<9, false>::arg1 operator>><9, false>(ap_int_base<9, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="/tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_common.h" line="523" pragmaType="inline" parentfunction="_ZN8ssdm_intILi9ELb0EEC2EDq9_j" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<9, false>::ap_int_base<8, false>(ap_int_base<8, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<9, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<9>::ap_uint<9, false>(ap_int_base<9, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/tools/Xilinx/Vitis/2024.2/common/technology/autopilot/etc/ap_common.h" line="523" pragmaType="inline" parentfunction="ssdm_int<8, false>::ssdm_int(unsigned char)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::RType<32, true>::plus operator+<8, false, 32, true>(ap_int_base<8, false> const&, ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<8, false>::ap_int_base<9, false>(ap_int_base<9, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
+</pragmas>

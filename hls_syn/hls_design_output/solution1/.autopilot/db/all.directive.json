@@ -1,0 +1,23 @@
+[
+  {
+    "functionLabel": "",
+    "functionName": "detect_and_recognize",
+    "id": 0,
+    "ifcond": "",
+    "insert_position": "",
+    "label": "",
+    "pragma": {
+      "name": "TOP",
+      "option": [
+        {
+          "name": "name",
+          "value": "detect_and_recognize"
+        }
+      ]
+    },
+    "slx": false,
+    "sourceFile": "/home/soheil/Desktop/mac_shared/fpga-vs-cpu-realtime-vision/hls_syn/hls.tcl",
+    "sourceLine": 27,
+    "success": true
+  }
+]
